@@ -1,0 +1,26 @@
+Для доступа к приложению, развернутому в tomcat,
+изначально в URL после http://localhost:8080/ нужно дописать имя файла .war, например:
+http://localhost:8080/Library
+
+Это имя .war файла, оно указывается в pom.xml:
+<build>
+    <finalName>Library</finalName>
+    ...
+
+Чтобы в URL не нужно было вписывать каждый раз /Library необходимо, чтобы приложение было
+развернуто в корневом каталоге tomcat, для этого war называем ROOT.war, для этого меняем
+в pom.xml:
+
+<build>
+    <finalName>ROOT</finalName>
+    ...
+
+
+If you want to access your servlet using https://example.com/ABC,
+then what you want to do is deploy your web application to the so-called
+"root" context. In Tomcat, you do that by naming your WAR file ROOT.war
+and the context path becomes "" (an empty string).
+
+! С версиями 5 spring и hibernate работает только 8 tomcat
+! В таком случае нужно импортировать пакет javax.persistence.*; для аннотаций и др.
+Иначе не запускается приложение. Ошибка can't create bean

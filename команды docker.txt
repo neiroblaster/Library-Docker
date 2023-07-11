@@ -1,0 +1,12 @@
+Для создания образа из Dockerfile:
+docker image build -t den/library
+Для запуска контейнера:
+docker run -it --publish 8080:8080 den/library
+
+Для запуска docker-compose:
+docker-compose up --build
+Для выхода из контейнера и остановки контейнера: ctrl + c
+
+Если выполнить команды maven clean и затем package, то если изменения были
+docker сам пересоздаст контейнер приложения при вводе команды:
+docker-compose up --build

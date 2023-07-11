@@ -1,0 +1,13 @@
+Для подключения к контейнеру postgres, нужно в URL указать
+имя контейнера (из docker-compose) вместо localhost:
+Вместо - jdbc:postgresql://localhost:5432/library_db
+Указать - jdbc:postgresql://library_postgres:5432/library_db
+
+Хотя, через Idea подключается через:
+jdbc:postgresql://localhost:5432/library_db
+
+Внутри контейнера postgres в терминале Docker:
+Подключить к БД:
+psql -U postgres -h localhost -d library_db
+Просмотреть все связи:
+\d
